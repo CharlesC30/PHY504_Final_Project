@@ -9,7 +9,7 @@ using namespace std;
 
 struct char_counts
 {
-    // containes unique characters of a string and their counts
+    // contains unique characters of a string and their counts
     vector<char> unique_char{};
     vector<int> counts{};
 };

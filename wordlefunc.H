@@ -63,36 +63,37 @@ color_string compare(string guess, string answer) {
     color_string output;
 
     output.characters = guess;
+    // initialize output colors to all grey
+    vector<int> init_colors (guess.length(), grey);
+    output.colors = init_colors;
 
-    // loop over index of characters in guess
-    for (int i = 0; i < guess.length(); i++) {
-                
-        bool inWord = false;
-        bool rightPlace = false;
+    char_counts ans_cc = get_counts(answer);
 
-        // loop over index of characters in answer
-        for (int j = 0; j < answer.length(); j++) {
+    // loop over unique letters of answer
+    for (int i = 0; i < ans_cc.unique_char.size(); i++) {
+        auto letter = ans_cc.unique_char[i];
+
+        // important to keep track of count so that letters are not marked extra times
+        auto N = ans_cc.counts[i];
+
+        // first loop over characters in guess and check for greens
+        for (int j = 0; j < guess.length(); j++) {
+            if ((guess[j] == letter) && (guess[j] == answer[j])) {
+                output.colors[j] = green;
+                N--;
+            }
+        }
         
-            // check if guess character matches answer character
-            if (guess[i] == answer[j]) {
-                inWord = true;
-                // check if index/location is the same
-                if (i == j) {
-                    rightPlace = true;
+        // if there are remaining counts (N > 0) of unique character then check for yellows
+        if (N > 0) {
+            for (int j = 0; j < guess.length(); j++) {
+                // check if letter should be marked yellow and that there are remaining counts
+                if ((guess[j] == letter) && (guess[j] != answer[j]) && (N > 0)) {
+                    output.colors[j] = yellow;
+                    N--;
                 }
             }
         }
-
-        if (inWord && rightPlace) {
-            output.colors.push_back(green);
-        }
-        else if (inWord) {
-            output.colors.push_back(yellow);
-        }
-        else {
-            output.colors.push_back(grey);
-        }
-
     }
 
     return output;
