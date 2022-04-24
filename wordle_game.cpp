@@ -25,9 +25,10 @@ int main() {
         cout << "guesses must be " << answer.length() << " characters long, enter new guess" << endl;
     }
 
-    // cout << "\033[34mbold red text\033[0m\n";    
+    // cout << "\033[" << 34 << "m" << "bold red text" << "\033[0m\n";    
     // output x;
-    // x.characters = "hello wordle";
+    // x.characters = "hello";
+    // x.colors = {31,31,33,31,31};
     // cout << x << endl;
 
 }

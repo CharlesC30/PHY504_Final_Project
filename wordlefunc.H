@@ -46,12 +46,13 @@ string rand_word(vector<string> dict) {
 struct output
 {
     string characters{};
-    vector<string> colors{};
+    vector<int> colors{};
 };
 
 ostream& operator<< (ostream& os, const output& op) {
-    for (auto c : op.characters) {
-        os << c;
+    /* allow cout to be used for printing colored text output */
+    for (int i = 0; i < op.characters.length(); i++) {
+        os << "\033[1;" << op.colors[i] << "m" << op.characters[i] << "\033[0m";
     }
 
     return os;
