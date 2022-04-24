@@ -87,7 +87,7 @@ color_string compare(string guess, string answer) {
         // if there are remaining counts (N > 0) of unique character then check for yellows
         if (N > 0) {
             for (int j = 0; j < guess.length(); j++) {
-                // check if letter should be marked yellow and that there are remaining counts
+                // check if letter should be marked yellow and that there are still remaining counts
                 if ((guess[j] == letter) && (guess[j] != answer[j]) && (N > 0)) {
                     output.colors[j] = yellow;
                     N--;

@@ -9,23 +9,23 @@ using namespace std;
 
 struct char_counts
 {
-    // contains unique characters of a string and their counts
     vector<char> unique_char{};
     vector<int> counts{};
 };
 
 char_counts get_counts(string str) {
+    /* get the unique charcters of a string and their respective counts */
     
     vector<char> unique{};
     for (auto c : str) {
 
-        // check if letter is not in unique vector
+        // check if character is not in unique vector
         if (find(unique.begin(), unique.end(), c) == unique.end()) {
             unique.push_back(c);
         }
     }
 
-    // initialize counts of each unique letter to zero
+    // initialize counts of each unique character to zero
     vector<int> cnt (unique.size(), 0);
 
     // loop over unique characters
