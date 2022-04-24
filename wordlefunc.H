@@ -50,6 +50,7 @@ struct color_string
 };
 
 color_string compare(string guess, string answer) {
+    /* compares guess and answer then returns colored string*/
 
     // ANSI color codes
     int green = 32;
@@ -69,8 +70,10 @@ color_string compare(string guess, string answer) {
         // loop over index of characters in answer
         for (int j = 0; j < answer.length(); j++) {
         
+            // check if guess character matches answer character
             if (guess[i] == answer[j]) {
                 inWord = true;
+                // check if index/location is the same
                 if (i == j) {
                     rightPlace = true;
                 }
@@ -96,7 +99,7 @@ color_string compare(string guess, string answer) {
 
 
 ostream& operator<< (ostream& os, const color_string& cs) {
-    /* allow cout to be used for printing colored text output */
+    /* define ostream for colored strings */
     for (int i = 0; i < cs.characters.length(); i++) {
         os << "\033[1;" << cs.colors[i] << "m" << cs.characters[i] << "\033[0m";
     }

@@ -22,6 +22,7 @@ int main() {
     cout << "Guess the word:" << endl;
     cin >> guess; 
 
+    // check that guess is the correct length
     if (guess.length() != answer.length()) {
         cout << "guesses must be " << answer.length() << " characters long, enter new guess" << endl;
     }
