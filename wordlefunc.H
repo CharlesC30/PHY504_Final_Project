@@ -17,7 +17,7 @@ vector<string> get_dict() {
     ifstream dict_file;
     dict_file.open("dictionary.txt");
     
-    vector<string> dict{}; // dict will be vector of dictionary words
+    vector<string> dict{}; // vector of dictionary words
 
     string line{};
 
@@ -43,16 +43,62 @@ string rand_word(vector<string> dict) {
 
 }
 
-struct output
+struct color_string
 {
     string characters{};
     vector<int> colors{};
 };
 
-ostream& operator<< (ostream& os, const output& op) {
+color_string compare(string guess, string answer) {
+
+    // ANSI color codes
+    int green = 32;
+    int yellow = 33;
+    int grey = 90;
+
+    color_string output;
+
+    output.characters = guess;
+    
+    // loop over index of characters in guess
+    for (int i = 0; i < guess.length(); i++) {
+        
+        bool inWord = false;
+        bool rightPlace = false;
+
+        // loop over index of characters in answer
+        for (int j = 0; j < answer.length(); j++) {
+        
+            if (guess[i] == answer[j]) {
+                inWord = true;
+                if (i == j) {
+                    rightPlace = true;
+                }
+            }
+        }
+
+        if (inWord && rightPlace) {
+            output.colors.push_back(green);
+        }
+        else if (inWord) {
+            output.colors.push_back(yellow);
+        }
+        else {
+            output.colors.push_back(grey);
+        }
+
+    }
+
+    return output;
+
+}
+
+
+
+ostream& operator<< (ostream& os, const color_string& cs) {
     /* allow cout to be used for printing colored text output */
-    for (int i = 0; i < op.characters.length(); i++) {
-        os << "\033[1;" << op.colors[i] << "m" << op.characters[i] << "\033[0m";
+    for (int i = 0; i < cs.characters.length(); i++) {
+        os << "\033[1;" << cs.colors[i] << "m" << cs.characters[i] << "\033[0m";
     }
 
     return os;
