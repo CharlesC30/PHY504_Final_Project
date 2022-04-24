@@ -6,6 +6,8 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <random>
+#include <time.h>
 
 using namespace std;
 
@@ -13,7 +15,7 @@ vector<string> get_dict() {
     /* Reads dictionary from .txt and outputs vector of strings */
 
     ifstream dict_file;
-    dict_file.open("dict   ionary.txt");
+    dict_file.open("dictionary.txt");
     
     vector<string> dict{}; // dict will be vector of dictionary words
 
@@ -29,6 +31,15 @@ vector<string> get_dict() {
     }
 
     return dict;
+
+}
+
+string rand_word(vector<string> dict) {
+    /* picks random word from dictionary */
+    srand (time(NULL)); // pseudo-random number seed
+    int rand_ind = rand() % dict.size(); // generate random number in range of dictionary size
+    string word = dict[rand_ind];
+    return word;
 
 }
 

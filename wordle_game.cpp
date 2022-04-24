@@ -14,6 +14,7 @@ int main() {
         return 1; // return 1 if there was error opening dictionary.txt
     }
 
-    
+    string answer = rand_word(dict);
+    cout << answer << endl;
 
 }
