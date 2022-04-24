@@ -1,5 +1,5 @@
-#ifndef WORDLEFUNC
-#define WORDLEFUNC
+#ifndef WORDLEFUNC_H
+#define WORDLEFUNC_H
 
 
 #include <iostream>
@@ -8,6 +8,8 @@
 #include <string>
 #include <random>
 #include <time.h>
+
+#include "CharCounts.H"
 
 using namespace std;
 
@@ -43,6 +45,7 @@ string rand_word(vector<string> dict) {
 
 }
 
+
 struct color_string
 {
     string characters{};
@@ -50,7 +53,7 @@ struct color_string
 };
 
 color_string compare(string guess, string answer) {
-    /* compares guess and answer then returns colored string*/
+    /* compares guess and answer then returns colored string */
 
     // ANSI color codes
     int green = 32;
@@ -60,10 +63,10 @@ color_string compare(string guess, string answer) {
     color_string output;
 
     output.characters = guess;
-    
+
     // loop over index of characters in guess
     for (int i = 0; i < guess.length(); i++) {
-        
+                
         bool inWord = false;
         bool rightPlace = false;
 
@@ -95,7 +98,6 @@ color_string compare(string guess, string answer) {
     return output;
 
 }
-
 
 
 ostream& operator<< (ostream& os, const color_string& cs) {
