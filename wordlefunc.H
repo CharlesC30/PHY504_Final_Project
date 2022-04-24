@@ -43,4 +43,18 @@ string rand_word(vector<string> dict) {
 
 }
 
+struct output
+{
+    string characters{};
+    vector<string> colors{};
+};
+
+ostream& operator<< (ostream& os, const output& op) {
+    for (auto c : op.characters) {
+        os << c;
+    }
+
+    return os;
+}
+
 #endif
