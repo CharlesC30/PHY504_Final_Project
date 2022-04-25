@@ -39,6 +39,4 @@ F90FLAGS := -O3 -g
 wordle_game: ${OBJECTS}
 	g++ -o $@ ${OBJECTS}
 	
-# 'make clean' will erase all the intermediate objects
-clean:
-	rm -f *.o wordle_game
+
