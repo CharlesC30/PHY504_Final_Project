@@ -38,3 +38,5 @@ F90FLAGS := -O3 -g
 
 wordle_game: ${OBJECTS}
 	g++ -o $@ ${OBJECTS}
+	
+
