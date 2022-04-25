@@ -53,7 +53,9 @@ struct color_string
 };
 
 color_string compare(string guess, string answer) {
-    /* compares guess and answer then returns colored string */
+    /* compares guess and answer then returns colored string for game output */
+
+    assert(guess.length() == answer.length());
 
     // ANSI color codes
     int green = 32;
@@ -103,6 +105,9 @@ color_string compare(string guess, string answer) {
 
 ostream& operator<< (ostream& os, const color_string& cs) {
     /* define ostream for colored strings */
+
+    assert(cs.characters.size() == cs.colors.size());
+
     for (int i = 0; i < cs.characters.length(); i++) {
         os << "\033[1;" << cs.colors[i] << "m" << cs.characters[i] << "\033[0m";
     }

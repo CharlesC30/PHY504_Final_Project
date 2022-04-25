@@ -10,9 +10,7 @@ int main() {
 
     vector<string> dict = get_dict(); // read in dictionary
     
-    if (dict.empty()){
-        return 1; // return 1 if there was error opening dictionary.txt
-    }
+    assert(!dict.empty());
 
     string answer = rand_word(dict); // generate answer
 
@@ -34,7 +32,7 @@ int main() {
 
         else {
             color_string output = compare(guess, answer);
-            // cout << round << " ";
+            cout << round << " ";
             cout << output << endl;
         }
 
