@@ -24,9 +24,6 @@ else
    CXXFLAGS += -DNDEBUG -O3
 endif
 
-F90FLAGS := -O3 -g
-
-
 # a recipe for making an object file from a .cpp file
 # Note: this makes every header file a dependency of every object file,
 # which is not ideal, but it is safe.
@@ -38,5 +35,7 @@ F90FLAGS := -O3 -g
 
 wordle_game: ${OBJECTS}
 	g++ -o $@ ${OBJECTS}
-	
 
+# 'make clean' will erase all the intermediate objects
+clean:
+	rm -f *.o wordle_game

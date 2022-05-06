@@ -6,11 +6,9 @@
 
 using namespace std;
 
-
 // TODO: Properly arrange code in headers and source files
 // add at least 1 test
 // write documentation
-// verify makefile works 
 
 int main() {
 
