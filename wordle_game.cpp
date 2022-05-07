@@ -1,7 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
+#include "CharCounts.H"
+#include "ColorString.H"
 #include "wordlefunc.H"
 
 using namespace std;

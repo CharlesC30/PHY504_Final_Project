@@ -1,9 +1,3 @@
-
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
 #include "CharCounts.H"
 
 char_counts get_counts(string str) {
