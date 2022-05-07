@@ -14,6 +14,9 @@
 
 using namespace std;
 
+// some function declarations for wordle game
+// since this header includes CharCounts.H and ColorString.H only this file needs to be included for all wordle functionality
+
 vector<string> get_dict();
 
 string rand_word(vector<string> dict);

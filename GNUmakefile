@@ -39,3 +39,7 @@ wordle_game: ${OBJECTS}
 # 'make clean' will erase all the intermediate objects
 clean:
 	rm -f *.o wordle_game
+
+# make unit test
+unit_test_wordle: ${OBJECTS}
+	g++ -o $@ ${OBJECTS}
