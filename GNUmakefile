@@ -44,8 +44,8 @@ wordle_game: wordle_game.o ${OBJECTS}
 unit_test_wordle: unit_test_wordle.o ${OBJECTS}
 	g++ -o $@ unit_test_wordle.o ${OBJECTS}
 
-testing: unit_test_vector2d
-	./unit_test_vector2d > /dev/null
+testing: unit_test_wordle
+	./unit_test_wordle > /dev/null
 	@if [ $$? -eq 0 ]; then echo "tests passed"; fi
 
 # 'make clean' will erase all the intermediate objects
