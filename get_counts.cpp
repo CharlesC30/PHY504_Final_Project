@@ -16,7 +16,7 @@ char_counts get_counts(string str) {
     vector<int> cnt (unique.size(), 0);
 
     // loop over unique characters
-    for (int i = 0; i < unique.size(); i++) {
+    for (unsigned int i = 0; i < unique.size(); i++) {
         auto u = unique[i];
         for (auto c : str) {
             if (u == c) {

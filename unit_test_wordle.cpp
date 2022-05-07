@@ -1,6 +1,6 @@
 #include "wordlefunc.H"
 
-// perform unit testing for wordle game functions
+// unit testing for wordle game functions
 
 int main() {
 
