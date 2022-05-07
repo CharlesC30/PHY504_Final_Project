@@ -12,6 +12,6 @@ int main() {
     auto word = rand_word(test_dict);
 
     // assert that the random word is in the test dictionary
-    assert(any_of(test_dict.begin(), test_dict.end(), word)); 
+    assert(find(test_dict.begin(), test_dict.end(), word) != test_dict.end()); 
 
 }

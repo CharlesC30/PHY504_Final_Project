@@ -13,6 +13,12 @@ HEADERS := $(wildcard *.H)
 
 OBJECTS := $(SOURCES:.cpp=.o)
 
+# we have 2 targets here, which means two main() functions.  We need
+# to exclude these from the general list of sources / objects, so we
+# filter them out
+MAINS := wordle_game.o unit_test_wordle.o
+OBJECTS := $(filter-out $(MAINS), $(OBJECTS))
+
 # by default, debug mode will be disabled
 DEBUG ?= FALSE
 
@@ -24,22 +30,20 @@ else
    CXXFLAGS += -DNDEBUG -O3
 endif
 
-# a recipe for making an object file from a .cpp file
-# Note: this makes every header file a dependency of every object file,
-# which is not ideal, but it is safe.
-
+# general rule for compiling a .cpp file to .o
 %.o : %.cpp ${HEADERS}
-	g++ -c $<
+	g++ ${CXXFLAGS} -c $<
+
 
 # explicitly write the rule for linking together the executable
 
-wordle_game: ${OBJECTS}
+wordle_game: wordle_game.o ${OBJECTS}
+	g++ -o $@ ${OBJECTS}
+
+# make unit test
+unit_test_wordle: unit_test_wordle.o ${OBJECTS}
 	g++ -o $@ ${OBJECTS}
 
 # 'make clean' will erase all the intermediate objects
 clean:
 	rm -f *.o wordle_game
-
-# make unit test
-unit_test_wordle: ${OBJECTS}
-	g++ -o $@ ${OBJECTS}
