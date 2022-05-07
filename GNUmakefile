@@ -40,13 +40,14 @@ endif
 wordle_game: wordle_game.o ${OBJECTS}
 	g++ -o $@ wordle_game.o ${OBJECTS}
 
-# make unit test
+# make testing to try unit tests for wordle functions
+
 unit_test_wordle: unit_test_wordle.o ${OBJECTS}
 	g++ -o $@ unit_test_wordle.o ${OBJECTS}
 
 testing: unit_test_wordle
 	./unit_test_wordle > /dev/null
-	@if [ $$? -eq 0 ]; then echo "tests passed"; fi
+	@if [ $$? -eq 0 ]; then echo "all tests passed"; fi
 
 # 'make clean' will erase all the intermediate objects
 clean:
