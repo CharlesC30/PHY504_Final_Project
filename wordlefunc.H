@@ -14,36 +14,8 @@
 
 using namespace std;
 
-vector<string> get_dict() {
-    /* Reads dictionary from .txt and outputs vector of strings */
+vector<string> get_dict();
 
-    ifstream dict_file;
-    dict_file.open("dictionary.txt");
-    
-    vector<string> dict{}; // vector of dictionary words
-
-    string line{};
-
-    if (! dict_file.is_open()){
-        cout << "Error opening dictionary.txt" << endl;
-    }
-
-    string word{};
-    while(getline(dict_file, word)) {
-        dict.push_back(word);
-    }
-
-    return dict;
-
-}
-
-string rand_word(vector<string> dict) {
-    /* picks random word from dictionary */
-    srand (time(NULL)); // pseudo-random number seed
-    int rand_ind = rand() % dict.size(); // generate random number in range of dictionary size
-    string word = dict[rand_ind];
-    return word;
-
-}
+string rand_word(vector<string> dict);
 
 #endif
