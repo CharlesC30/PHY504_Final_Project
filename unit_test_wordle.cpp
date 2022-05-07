@@ -14,4 +14,6 @@ int main() {
     // assert that the random word is in the test dictionary
     assert(find(test_dict.begin(), test_dict.end(), word) == test_dict.end()); 
 
+    assert(1 == 0);
+
 }
