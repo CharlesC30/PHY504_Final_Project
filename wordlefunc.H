@@ -10,6 +10,7 @@
 #include <time.h>
 
 #include "CharCounts.H"
+#include "ColorString.H"
 
 using namespace std;
 
@@ -45,12 +46,6 @@ string rand_word(vector<string> dict) {
 
 }
 
-
-struct color_string
-{
-    string characters{};
-    vector<int> colors{};
-};
 
 color_string compare(string guess, string answer) {
     /* compares guess and answer then returns colored string for game output */
@@ -102,17 +97,5 @@ color_string compare(string guess, string answer) {
 
 }
 
-
-ostream& operator<< (ostream& os, const color_string& cs) {
-    /* define ostream for colored strings */
-
-    assert(cs.characters.size() == cs.colors.size());
-
-    for (int i = 0; i < cs.characters.length(); i++) {
-        os << "\033[1;" << cs.colors[i] << "m" << cs.characters[i] << "\033[0m";
-    }
-
-    return os;
-}
 
 #endif
