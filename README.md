@@ -4,10 +4,10 @@ by Charles Clark (SBU ID: 111590630)
 
 Overview:
 
-This program replicates the popular web-based game 'Wordle' (https://www.nytimes.com/games/wordle/index.html) using C++ 
+This program replicates the popular web-based game 'Wordle' (https://www.nytimes.com/games/wordle/index.html) using C++. 
 During the game a secret word is hidden from the player (the answer). The player has six guesses to find the answer. 
 After each guess the letters in the guess are marked grey, yellow, or green to give the player more information. 
-Grey indicates the letter does not appear in the answer, yellow indicates that the letter is the answer but in a different position, and green indicates the letter is in the answer and in the correct position. 
+Grey indicates the letter does not appear in the answer, yellow indicates that the letter appears in the answer but in a different position, and green indicates the letter is in the answer and in the correct position. 
 
 Playing the game:
 
