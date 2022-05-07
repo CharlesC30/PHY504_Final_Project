@@ -16,7 +16,6 @@ struct color_string
     vector<int> colors{};
 };
 
-
 ostream& operator<< (ostream& os, const color_string& cs) {
     /* define output operator for color strings so they print intuitively*/
 
@@ -28,5 +27,7 @@ ostream& operator<< (ostream& os, const color_string& cs) {
 
     return os;
 }
+
+color_string compare(string guess, string answer);
 
 #endif
