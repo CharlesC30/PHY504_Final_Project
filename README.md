@@ -27,6 +27,7 @@ wordlefunc.H contains the remaining function declarations for the game. It also 
 
 Testing/Debugging:
 
+Before doing any testing/debugging it is recommended you run 'make clean' to remove any previous builds of the program.
 To run the program in debug mode run 'make DEBUG=TRUE wordle_game' in the terminal. 
 Unit testing for several important game functions is provided in unit_testing_wordle.cpp. To check all unit tests run 'make DEBUG=TRUE testing' in the terminal. This will print 'all tests passed' upon successfully completion of all tests, or return an error otherwise. 
 Please note running 'make testing' will always print 'all tests passed'. Make sure to include DEBUG=TRUE when running the tests.
